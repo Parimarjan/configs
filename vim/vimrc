@@ -1,0 +1,270 @@
+filetype off
+
+set nocompatible
+
+"set visualbell t_vb=
+syntax enable
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Future plugin ideas for vim
+" conque, conque-gdb?
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'rking/ag.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'lervag/vimtex'
+Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'rust-lang/rust.vim'
+"Plugin 'tomlion/vim-solidity'
+"Experimental stuff:
+"Plugin 'jaxbot/selective-undo.vim'
+
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_by_filename = 1
+
+"Plugin 'Raimondi/delimitMate'
+Plugin 'vim-scripts/Gundo'
+"Plugin 'vim-scripts/YankRing.vim'
+"Plugin 'vim-scripts/MatlabFilesEdition'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
+"for ycm config generator:
+
+set background=dark
+"colorscheme solarized
+
+"losh's defined new leader key:
+let mapleader = ","
+
+"setlocal spell
+
+syntax on
+set modelines=0
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+"just make things better @Stevelosh
+
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set smartindent
+set cindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+"set cursorline
+set ttyfast
+"set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set relativenumber
+set number
+set undofile
+
+"searching and moving
+
+"nnoremap / /\v
+"vnoremap / /\v
+set ignorecase
+set smartcase
+"set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+"nnoremap <tab> %
+"vnoremap <tab> %
+
+"set wrap
+set textwidth=99
+"set formatoptions=qrn1
+"set colorcolumn=85
+
+"nnoremap j gj
+"nnoremap k gk
+
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+"nnoremap ; :
+
+"stuff from Damian Conway
+"Fuck this stupid shit. 
+"highlight ColorColumn ctermbg=magenta
+"call matchadd('ColorColumn', '\%81v', 100)
+
+"setting my tags and stuff"
+
+set tags=./tags;/
+set tags+=/usr/local/lib/python2.7/site-packages/chess/tags
+
+"Train myself:
+
+no <down> <Nop>
+no <left> <Nop>
+no <right> <Nop>
+no <up> <Nop>
+
+ino <down> <Nop>
+ino <left> <Nop>
+ino <right> <Nop>
+ino <up> <Nop>
+
+"syntastic stuff:
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+" To ensure syntastic still runs.
+" Ideally, want to run only YCM later, but need to figure out clang stuff for
+" that.
+
+let g:ycm_register_as_syntastic_checker = 0
+
+"Stuff that I AM Doing myself:
+
+nnoremap <c-v> "+p
+
+"getting rid of temp files:
+
+" Remember --- need to create these folders if redoing
+" the vim config!
+" swap files (.swp) in a common location
+" // means use the file's full path
+set dir=~/.vim/_swap//
+
+" backup files (~) in a common location if possible
+set backup
+set backupdir=~/.vim/_backup//
+
+" turn on undo files, put them in a common location
+set undofile
+set undodir=~/.vim/_undo//
+
+" magical stuff to get rid of empty lines:
+
+nnoremap <leader>el :%s/\s\+$//e<CR> <bar> :%s/\n\{3,}/\r\r/e<CR>
+
+" indentation stuff:
+nnoremap <leader>i ggVG=
+
+" So the swap files don't fuck with my brain:
+set shortmess+=A
+
+"Stuff to make ctrl-s work as I want.
+" Allow us to use Ctrl-s and Ctrl-q as keybinds
+"silent !stty -ixon
+
+" Restore default behaviour when leaving Vim.
+"autocmd VimLeave * silent !stty ixon
+
+"going to do better ways to save than what that idiot taught me:
+
+"nnoremap <c-s> :w<CR>
+"nnoremap <c-q>
+
+"I think these might be cooler commands to do this stuff:
+
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :wq<CR>
+nnoremap <leader>e :q<CR>
+
+"Dealing with the yankring and ctrlp mess:
+"let g:ctrlp_map = '<leader>p'
+"let g:ctrlp_cmd = '<leader>p'
+"nnoremap <leader>p :CtrlP<CR>
+
+"easy way to switch between .c and .h files in vim:
+nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+let g:solarized_termcolors= 16
+let g:solarized_termtrans = 16
+
+let g:solarized_bold = 1
+let g:solarized_underline = 1
+let g:solarized_italic = 1
+let g:solarized_contrast = "high"
+let g:solarized_visibility= "high"
+
+"let g:syntastic_quiet_messages = {
+        "\ "!level":  "",
+        "\ "type":    "errors",
+        "\ "regex":   '.*',
+        "\ "file:p":  '.*' }
+
+"let g:syntastic_quiet_messages={'level':'warnings'}
+
+autocmd FileType python nnoremap <buffer> <leader>b :exec '!python2' shellescape(@%, 1)<cr>
+autocmd FileType *.m nnoremap <buffer> <leader>b :exec '!octave' shellescape(@%, 1)<cr>
+"autocmd FileType *.v nnoremap <buffer> <leader>b :exec 'make'<cr>
+
+nmap <leader>r :!regent.py % -p 4 -e 12 -i ./images/gates.png <return>
+"nmap <leader>r :!regent.py % -i ./examples/example1.dat <return>
+nmap <leader>b :!octave % <cr>
+nmap <leader>b :~/cs251/proj4/
+
+cmap w!! w !sudo tee > /dev/null %
+
+"reload vimrc
+nmap <silent> <leader>rel :so $MYVIMRC<CR>
+
+let g:syntastic_python_python_exec = '/usr/local/bin/python'
+
+"let python_highlight_all=1
+
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <c-w>s :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
+"vim tex stuff
+let g:tex_flavor = 'latex'
+"let g:vimtex_fold_comments = 1
+"let g:vimtex_index_resize = 1
+"autocmd Filetype tex setl updatetime=1
+
+au BufNewFile,BufRead *.rg set filetype=lua
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(data|old_dbns|pickle|dbn_old)$',
+  \ 'file': '\v\.(exe|so|dll|pickle)$',
+  \ }
+
+"Get rid of whitespaces
+nnoremap <silent> <leader>w :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
+"Stop the flashing crap
+set novb
+vmap <C-c> :w !pbcopy<CR><CR> 
+let DYLD_FORCE_FLAT_NAMESPACE=1
+"set spell
