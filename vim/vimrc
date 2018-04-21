@@ -26,6 +26,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'lervag/vimtex'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'rust-lang/rust.vim'
+Plugin 'thirtythreeforty/lessspace.vim'
 "Plugin 'tomlion/vim-solidity'
 "Experimental stuff:
 "Plugin 'jaxbot/selective-undo.vim'
@@ -100,9 +101,9 @@ nnoremap <leader><space> :noh<cr>
 "vnoremap <tab> %
 
 "set wrap
-set textwidth=99
+set textwidth=79
 "set formatoptions=qrn1
-"set colorcolumn=85
+"set colorcolumn=79
 
 "nnoremap j gj
 "nnoremap k gk
@@ -226,6 +227,7 @@ let g:solarized_visibility= "high"
 "let g:syntastic_quiet_messages={'level':'warnings'}
 
 autocmd FileType python nnoremap <buffer> <leader>b :exec '!python2' shellescape(@%, 1)<cr>
+autocmd FileType java nnoremap <buffer> <leader>b :exec '!make' <cr>
 autocmd FileType *.m nnoremap <buffer> <leader>b :exec '!octave' shellescape(@%, 1)<cr>
 "autocmd FileType *.v nnoremap <buffer> <leader>b :exec 'make'<cr>
 
