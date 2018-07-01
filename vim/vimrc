@@ -18,7 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 "Plugin 'altercation/vim-colors-solarized'
 "Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -270,3 +270,7 @@ set novb
 vmap <C-c> :w !pbcopy<CR><CR> 
 let DYLD_FORCE_FLAT_NAMESPACE=1
 "set spell
+"
+
+"new additions
+set pastetoggle=<F2>

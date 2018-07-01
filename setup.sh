@@ -10,3 +10,8 @@ mkdir ~/.vim/_undo
 vim +PluginInstall +qall
 python ~/.vim/bundle/YouCompleteMe/install.py
 
+# Setup for tmux
+cp tmux/tmux.conf ~/.tmux.conf
+
+
+
