@@ -8,10 +8,13 @@ mkdir ~/.vim/_backup
 mkdir ~/.vim/_swap
 mkdir ~/.vim/_undo
 vim +PluginInstall +qall
-python ~/.vim/bundle/YouCompleteMe/install.py
+sudo apt get update
+sudo apt get install cmake
+python3 ~/.vim/bundle/YouCompleteMe/install.py
 
 # Setup for tmux
 cp tmux/tmux.conf ~/.tmux.conf
 
-
-
+git config --global user.name "parimarjan"
+git config --global core.editor "vim"
+git config --global user.email "parimarjannegi@gmail.com"
