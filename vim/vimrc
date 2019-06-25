@@ -18,7 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 "Plugin 'altercation/vim-colors-solarized'
 "Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -59,9 +59,9 @@ let mapleader = ","
 syntax on
 set modelines=0
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 "just make things better @Stevelosh
@@ -115,7 +115,7 @@ vnoremap <F1> <ESC>
 "nnoremap ; :
 
 "stuff from Damian Conway
-"Fuck this stupid shit. 
+"Fuck this stupid shit.
 "highlight ColorColumn ctermbg=magenta
 "call matchadd('ColorColumn', '\%81v', 100)
 
@@ -126,15 +126,15 @@ set tags+=/usr/local/lib/python2.7/site-packages/chess/tags
 
 "Train myself:
 
-no <down> <Nop>
-no <left> <Nop>
-no <right> <Nop>
-no <up> <Nop>
+"no <down> <Nop>
+"no <left> <Nop>
+"no <right> <Nop>
+"no <up> <Nop>
 
-ino <down> <Nop>
-ino <left> <Nop>
-ino <right> <Nop>
-ino <up> <Nop>
+"ino <down> <Nop>
+"ino <left> <Nop>
+"ino <right> <Nop>
+"ino <up> <Nop>
 
 "syntastic stuff:
 
@@ -267,10 +267,13 @@ nnoremap <silent> <leader>w :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar>
 
 "Stop the flashing crap
 set novb
-vmap <C-c> :w !pbcopy<CR><CR> 
+vmap <C-c> :w !pbcopy<CR><CR>
 let DYLD_FORCE_FLAT_NAMESPACE=1
 "set spell
 "
 
 "new additions
 set pastetoggle=<F2>
+" Make `jj` and `jk` throw you into normal mode
+inoremap jj <esc>
+inoremap jk <esc>
