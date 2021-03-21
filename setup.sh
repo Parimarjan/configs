@@ -10,6 +10,7 @@ mkdir ~/.vim/_undo
 vim +PluginInstall +qall
 sudo apt get update
 sudo apt get install cmake
+sudo apt get install python3-pip
 python3 ~/.vim/bundle/YouCompleteMe/install.py
 
 # Setup for tmux
